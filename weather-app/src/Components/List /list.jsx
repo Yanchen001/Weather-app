@@ -1,7 +1,15 @@
-export default function List() {
+export default function List({activities, onDeleteActivity}) {
   return (
     <div>
-      <ul></ul>
+      {(activities ?? []).map((activity) => (
+        <li key={activity.id}>{activity.activityName}
+          <button
+          onClick={()=> onDeleteActivity?.(activity)}>x</button>
+        </li>)
+      
+      )}
+
+      
     </div>
   );
 }

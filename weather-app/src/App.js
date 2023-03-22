@@ -6,16 +6,25 @@ import { useState } from "react";
 import {uid} from "uid";
 
 function App() {
-  const [activity, setActivity] = useState([]);
+  const [activities, setActivity] = useState([]);
+  //const [list, setList] = useState([]);
+
+
 
   function handleAddActivity(newActivity) {
-    setActivity([...activity, {...newActivity, id:uid()}]);
+    setActivity([...activities, {...newActivity, id:uid()}]);
+
   }
-  console.log(activity);
+  // function handleShowActivity(newList){
+  //   setList([...list,])
+  // }
+
+  
+  console.log(activities);
   return (
     <div className="App">
       <header className="App-header">
-        <List />
+        <List activities = {activities}/>
         <Form onAddActivity={handleAddActivity} />
       </header>
     </div>
