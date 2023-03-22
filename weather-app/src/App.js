@@ -17,9 +17,9 @@ function App() {
   useEffect(() => {
     fetchWeather();
     const interval = setInterval(() => {
-    fetchWeather();
-    }, 5000)
-    
+      fetchWeather();
+    }, 5000);
+
     return () => {
       clearInterval(interval);
     };
@@ -51,13 +51,17 @@ function App() {
       <header className="App-header">
         <h2 className="API-heading">
           <p className="emoji">{weather.condition}</p>
-          <p className="temp">{weather.temperature}</p>
+          <p className="temp">{weather.temperature} °C</p>
         </h2>
         <List
           activities={
             weather.isGoodWeather ? goodWeatherActivities : badWeatherActivities
           }
-          headline={weather.isGoodWeather ? "go out" : "stay home"}
+          headline={
+            weather.isGoodWeather
+              ? "The weather is awsome! Go outside and:"
+              : "Bad weather outside! Here is what you can do:"
+          }
           onDeleteActivity={handleDeleteActivity}
         />
 
