@@ -4,6 +4,11 @@ import Form from "./Components/Form/form";
 import List from "./Components/List /list";
 
 function App() {
+
+  // function AddActivity () {
+  //   handleSubmit()
+  // }
+
   return (
     <div className="App">
       <header className="App-header">
