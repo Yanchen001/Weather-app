@@ -10,7 +10,7 @@ function App() {
     defaultValue: [],
   });
 
-  const isGoodWeather = true;
+   const isGoodWeather = true;
 
   function handleAddActivity(newActivity) {
     setActivity([...activities, { ...newActivity, id: uid() }]);
@@ -19,13 +19,17 @@ function App() {
   console.log(activities);
 
   const goodWeatherActivities = activities.filter(
-    (activity) => activity.isForGoodWeather === isGoodWeather
+    (activity) => activity.isForGoodWeather 
+  );
+  const badWeatherActivities = activities.filter(
+    (activity) => !activity.isForGoodWeather
   );
 
   return (
     <div className="App">
       <header className="App-header">
-        <List activities={goodWeatherActivities} />
+        <List activities={goodWeatherActivities} headline={"go out"} />
+        <List activities={badWeatherActivities} headline={"stay home"} />
         <Form onAddActivity={handleAddActivity} />
       </header>
     </div>
